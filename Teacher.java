@@ -14,10 +14,10 @@ public class Teacher {
     private int idTeacher;
     private String Specialism;
 
-    @OneToMany
+    @OneToMany(mappedBy = "course")
     @JsonManagedReference
     private List<Course> courses;
-    
+
     public Teacher() {}
 
     public Teacher(int idTeacher, String specialism) {
