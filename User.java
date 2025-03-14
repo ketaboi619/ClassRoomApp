@@ -1,14 +1,24 @@
-package models;
+package com.example.ClassRoomAPI.models;
 
-import helpers.UserType;
+import com.example.ClassRoomAPI.helpers.UserType;
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "users")
 
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user")
     private Integer id;
+    @Column(nullable = false,length = 100)
     private String name;
 
+    @Column(name = "email",unique = true)
     private String email;
-
+    @Column(nullable = false,length = 255)
     private String password;
 
     private String phone;
@@ -75,3 +85,4 @@ public class User {
         this.userType = userType;
     }
 }
+
